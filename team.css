@@ -1,0 +1,90 @@
+/* Team page only. Colors and fonts come from the variables in style.css. */
+
+.team-intro {
+    padding: clamp(3rem, 10vw, 7rem) var(--pad) clamp(2rem, 5vw, 4rem);
+}
+
+.team-intro h1 {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(2.75rem, 9vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+}
+
+.team-intro p {
+    max-width: 44ch;
+    margin: 1.75rem 0 0;
+    color: var(--haze);
+    font-size: 1.15rem;
+}
+
+/* Roster: three columns, with every second column dropped for a staggered rhythm */
+.roster {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem clamp(1.5rem, 4vw, 3.5rem);
+    padding: 0 var(--pad) clamp(3rem, 8vw, 6rem);
+}
+
+.member:nth-child(3n + 2) { margin-top: 3.5rem; }
+
+.photo {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    margin-bottom: 1.1rem;
+    border-radius: 0.5rem 0.5rem 50% 50% / 0.5rem 0.5rem 30% 30%;
+    background: var(--deep);
+    color: var(--haze);
+    font-size: 2.5rem;
+    font-weight: 800;
+    object-fit: cover;
+}
+
+.member h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.member .role {
+    margin: 0.15rem 0 0.75rem;
+    color: var(--moon);
+    font-weight: 600;
+}
+
+.member .bio {
+    max-width: 38ch;
+    margin: 0;
+    color: var(--haze);
+}
+
+.team-back {
+    margin: 0;
+    padding: 0 var(--pad) clamp(2rem, 5vw, 4rem);
+}
+
+.team-back a {
+    padding: 0.6rem 1.5rem;
+    border: 1.5px solid var(--moon);
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.team-back a:hover { background: var(--moon); color: var(--night); }
+
+@media (max-width: 900px) {
+    .roster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .member:nth-child(3n + 2) { margin-top: 0; }
+    .member:nth-child(even) { margin-top: 3rem; }
+}
+
+@media (max-width: 560px) {
+    .roster { grid-template-columns: 1fr; }
+    .member:nth-child(even) { margin-top: 0; }
+    .photo { max-width: 18rem; }
+}
